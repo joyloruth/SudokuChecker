@@ -40,11 +40,13 @@ public class SudokuChecker
 		int number = scan.nextInt();
 		
 		
-		check.isNumberInRow(panel, number, row);
+		//check.isNumberInRow(panel, number, row);
 		
-		check.isNumberInColumn(panel, number, column);
+		//check.isNumberInColumn(panel, number, column);
 		
-		check.isNumberInCube(panel, number, row, column);
+		//check.isNumberInCube(panel, number, row, column);
+		
+		check.correctPosition(panel, number, row, column);
 		
 		
 				
@@ -90,8 +92,8 @@ public class SudokuChecker
 	 
 	 
 	//method finds out if input number is found in the specified 3 X 3 cube
-		 boolean isNumberInCube(int[][] panel, int number, int row, int column)
-		{
+	boolean isNumberInCube(int[][] panel, int number, int row, int column)
+	{
 			 int currentCubeRow = row - row%3;
 			 int currentCubeColumn = column - column%3;
 			 
@@ -110,9 +112,15 @@ public class SudokuChecker
 			 
 			 System.out.println("false");
 			 return false;
-		}
+	}
 			 
-	 
+	 boolean correctPosition(int[][] panel, int number, int row, int column){
+		 
+		 if( !isNumberInRow(panel, number, row) && !isNumberInColumn(panel, number, column)&& !isNumberInCube(panel, number, row, column))
+			System.out.println("you can place number here");
+		 	
+		 return false;
+	 }
 			
 }
 
