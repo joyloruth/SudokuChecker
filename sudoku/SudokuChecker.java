@@ -38,12 +38,20 @@ public class SudokuChecker
 		int number = scan.nextInt();
 		
 		
-		check.isNumberInRow(board, number, row);
+		//check.isNumberInRow(board, number, row);
 		
-		check.isNumberInColumn(board, number, column);
+		//check.isNumberInColumn(board, number, column);
 		
+		int currentBoxRow = row - row%3;
+		int currentBoxColumn = column - column%3;
+	
+		 System.out.println(currentBoxRow);
+		 System.out.println(currentBoxColumn);
+				
 		
 	}
+	
+	
 	
 	 //method finds out if input number is found in the specified row
 	 boolean isNumberInRow(int[][] board, int number, int row)
@@ -62,6 +70,8 @@ public class SudokuChecker
 	}
 	
 	 
+	 
+	 
 	 //method finds out if input number is found in the specified column
 	 boolean isNumberInColumn(int[][] board, int number, int column)
 		{
@@ -77,5 +87,14 @@ public class SudokuChecker
 				System.out.println("false");
 				return false;
 		}
+	 
+	 
+	//method finds out if input number is found in the specified column
+		 boolean isNumberInCube(int[][] board, int number, int row, int column)
+			{
+			 int currentBoxRow = row - row%3;
+			 int currentBoxColumn = column - column%3;
+				return true;
+			}
 	 
 }
