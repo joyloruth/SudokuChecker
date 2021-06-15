@@ -46,7 +46,17 @@ public class SudokuChecker
 		
 		//check.isNumberInCube(panel, number, row, column);
 		
-		check.correctPosition(panel, number, row, column);
+		//check.correctPosition(panel, number, row, column);
+		
+		 for(int i = 0; i < panel.length; i++ ) 
+		 {
+			 for(int k = i; k < panel.length; k++) 
+			 {
+				 System.out.print(panel[i][k]);
+				 System.out.print(" ");
+			 }
+			 
+		 }
 		
 		
 				
@@ -114,14 +124,31 @@ public class SudokuChecker
 			 return false;
 	}
 			 
-	 boolean correctPosition(int[][] panel, int number, int row, int column){
-		 
+	
+	
+	
+	
+	 boolean correctPosition(int[][] panel, int number, int row, int column)
+	 {
 		 if( !isNumberInRow(panel, number, row) && !isNumberInColumn(panel, number, column)&& !isNumberInCube(panel, number, row, column))
 			System.out.println("you can place number here");
 		 	
 		 return false;
 	 }
-			
+	 
+	 
+	
+	 
+	 
+	 boolean solveThePuzzle(int[][] panel, int number, int row, int column)
+	 {
+		 for(int i = 0; row < GRID_SIZE; i++ ) 
+		 {
+			 
+		 }
+		 return false;
+	 }
+	 
 }
 
 
