@@ -48,16 +48,6 @@ public class SudokuChecker
 		
 		//check.correctPosition(panel, number, row, column);
 		
-		 for(int i = 0; i < panel.length; i++ ) 
-		 {
-			 for(int k = i; k < panel.length; k++) 
-			 {
-				 System.out.print(panel[i][k]);
-				 System.out.print(" ");
-			 }
-			 
-		 }
-		
 		
 				
 		
@@ -140,14 +130,29 @@ public class SudokuChecker
 	
 	 
 	 
-	 boolean solveThePuzzle(int[][] panel, int number, int row, int column)
+	 boolean solveThePuzzle(int[][] panel)
 	 {
-		 for(int i = 0; row < GRID_SIZE; i++ ) 
+		 for(int row = 0; row < GRID_SIZE; row++ ) 
 		 {
-			 
+			 for(int column = 0; column < GRID_SIZE; column++)
+			 {
+				 
+				 if(panel[row][column] == 0)
+				 {
+					 for(int nextNumber = 1; nextNumber <= GRID_SIZE; nextNumber++)
+					 {
+						 if(correctPosition(panel, nextNumber, row , column))
+						 {
+							 panel[row][column] = nextNumber;
+						 }
+					 }
+				 }
+			 }
 		 }
 		 return false;
 	 }
+	 
+	 
 	 
 }
 
